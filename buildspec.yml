@@ -12,7 +12,7 @@ phases:
       - export PATH=$PATH:./sonar-scanner-4.4.0.2170-linux/bin/
   pre_build:
     commands:
-      - sonar-scanner -Dsonar.organization=utkarshced -Dsonar.projectKey=utkarshced_magento -Dsonar.sources=src -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=c6fb0ae8ed46aff94cb1e4dcde8d4971b25e3353
+      - sonar-scanner -Dsonar.organization=utkarshced -Dsonar.projectKey=utkarshced_magento -Dsonar.sources=. -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=c6fb0ae8ed46aff94cb1e4dcde8d4971b25e3353
       - sleep 5
       - curl https://sonarcloud.io/api/qualitygates/project_status?projectKey=utkarshced_magento > analysis.json
       - cat analysis.json
