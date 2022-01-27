@@ -16,6 +16,7 @@ phases:
       - sleep 5
       - curl https://sonarcloud.io/api/qualitygates/project_status?projectKey=utkarshced_magento > analysis.json
       - cat analysis.json
+      - if [ $(jq -r '.projectStatus.status' analysis.json) = ERROR ] ; then $CODEBUILD_BUILD_SUCCEEDING -eq 0 ;fi
   build:
     commands:
       - echo Building Project
